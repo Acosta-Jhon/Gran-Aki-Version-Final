@@ -13,7 +13,7 @@ namespace Gran_Aki_Version_Final.Models
         [DisplayName("Rol")]
         public IdentityRole Rol { get; set; }
 
-        [Key]
+        
         [DisplayName("Miembros")]
         public IEnumerable<IdentityUser> miembros { get; set; }
 
