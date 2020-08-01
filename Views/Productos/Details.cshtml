@@ -1,0 +1,42 @@
+﻿@model Gran_Aki_Version_Final.Models.Producto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductosNombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductosNombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductosPrecio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductosPrecio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Categoria.CategoriaNombre)
+        </dd>
+        <dd class="col-auto w-25 h-25">
+            Cargar Imagen
+        </dd>
+        <dt class="col-auto w-25 h-25">
+            <img src="@("/Producto/" + Model.ImageName)" asp-append-version="true" class="w-50 h-50"/>
+        </dt>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductosId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

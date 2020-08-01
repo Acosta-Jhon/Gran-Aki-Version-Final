@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Gran_Aki_Version_Final.Models.Persona>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-secondary">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonaNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonaApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonaEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonaFechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonaTelefono)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ImageFile)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonaNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonaApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonaEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonaFechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonaTelefono)
+            </td>
+            <td class="mx-auto">
+                <img src="@("/Image/" + item.ImageName)" asp-append-version="true" class="w-25 h-25" />
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PersonaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PersonaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PersonaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

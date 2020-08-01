@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Gran_Aki_Version_Final.Models.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductosNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductosPrecio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ImageFile)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductosNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductosPrecio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.CategoriaId)
+            </td>
+            <td>
+                <img src="@("/Producto/" + item.ImageName)" asp-append-version="true" class="rounded-circle mx-auto d-block w-25 h-25" />
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductosId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductosId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductosId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
