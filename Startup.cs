@@ -12,6 +12,8 @@ using Gran_Aki_Version_Final.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Gran_Aki_Version_Final.Services;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Gran_Aki_Version_Final
 {
@@ -36,6 +38,29 @@ namespace Gran_Aki_Version_Final
                .AddRoles<IdentityRole>()  // <=
                                           //
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            // requires
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            // using WebPWrecover.Services;
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
+
+            //servicio de facebook
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
+            services.AddAuthentication()
+            .AddGoogle(options =>
+            {
+                IConfigurationSection googleAuthNSection =
+                    Configuration.GetSection("Authentication:Google");
+
+                options.ClientId = googleAuthNSection["ClientId"];
+                options.ClientSecret = googleAuthNSection["ClientSecret"];
+            });
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
