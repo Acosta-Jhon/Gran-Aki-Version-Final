@@ -24,5 +24,5 @@ Dejando huella
 
 =>Registro mediante formulario,Facebook y Google
 
-=>Verificaicon de correo mediante SendGrid
+=>Verificacion de correo mediante SendGrid
 
