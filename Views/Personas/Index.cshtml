@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Registros</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear Registro</a>
 </p>
 <table class="table table-secondary">
     <thead>
@@ -52,12 +52,12 @@
                 @Html.DisplayFor(modelItem => item.PersonaTelefono)
             </td>
             <td class="mx-auto">
-                <img src="@("/Image/" + item.ImageName)" asp-append-version="true" class="w-25 h-25" />
+                <img src="@("/Image/" + item.ImageName)" asp-append-version="true" width="25" height="25" />
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PersonaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PersonaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PersonaId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.PersonaId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.PersonaId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.PersonaId">Eliminar</a>
             </td>
         </tr>
 }

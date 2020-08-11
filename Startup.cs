@@ -46,20 +46,13 @@ namespace Gran_Aki_Version_Final
             services.Configure<AuthMessageSenderOptions>(Configuration);
 
             //servicio de facebook
-            services.AddAuthentication().AddFacebook(facebookOptions =>
+            services.AddAuthentication()
+                .AddFacebook(facebookOptions =>
             {
                 facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
                 facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
             });
-            services.AddAuthentication()
-            .AddGoogle(options =>
-            {
-                IConfigurationSection googleAuthNSection =
-                    Configuration.GetSection("Authentication:Google");
-
-                options.ClientId = googleAuthNSection["ClientId"];
-                options.ClientSecret = googleAuthNSection["ClientSecret"];
-            });
+            
 
             services.AddControllersWithViews();
             services.AddRazorPages();

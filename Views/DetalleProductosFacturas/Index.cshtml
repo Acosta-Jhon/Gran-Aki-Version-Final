@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Gran_Aki_Version_Final.Models.DetalleProductosFactura>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Detalle Factura";
 }
 
-<h1>Index</h1>
+<h1>Registros</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear</a>
 </p>
 <table class="table">
     <thead>
@@ -61,9 +61,9 @@
                 @Html.DisplayFor(modelItem => item.Factura.FacturaId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.DetalleId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DetalleId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DetalleId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.DetalleId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.DetalleId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.DetalleId">Eliminar</a>
             </td>
         </tr>
 }
