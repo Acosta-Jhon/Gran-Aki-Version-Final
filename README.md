@@ -1,6 +1,6 @@
-# Gran-Aki-Version-Final
-Dejando huella
-=>SECRETOS
+# Gran-Aki-Version-Final - Dejando huella
+
+=>**SECRETOS**
 
 =======>FACEBOOK
 
@@ -14,7 +14,7 @@ Dejando huella
 
 => PM> dotnet user-secrets set SendGridKey "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"
 
-=>DETALLES
+=>**DETALLES**
 
 =>Utilizacion de DbContext,DbSet.
 
